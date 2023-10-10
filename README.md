@@ -1,8 +1,8 @@
-# RCMDS
-Control App for [RCM](https://github.com/rcmgames/rcm)
+# RCMDS - A program for driving the robot base by connecting directly to the ESP32 in it.
 
-Made with [Processing!](https://www.processing.org/reference)
+Open with [Processing!](https://www.processing.org/download)
 
+This code is a fork of https://github.com/RCMgames/RCMDS
 
 ## UI element reference:
 ### Joystick
