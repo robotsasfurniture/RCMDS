@@ -8,7 +8,7 @@ UDP udp;
 long wifiReceivedMillis=0;
 long wifiSentMillis=0;
 long wifiPing=-1;
-static final int wifiRetryPingTime=800;
+static final int wifiRetryPingTime=300;
 static final float disableTimeMultiplier=8;
 void sendWifiData(boolean t) {
   if ((t&&millis()-wifiSentMillis>wifiRetryPingTime)||!t) {
@@ -50,20 +50,20 @@ void sendBy(byte d) {
 void sendIn(int d) {
   arrayToSend[wifiArrayCounter] = byte((d & 0xFF));
   wifiArrayCounter++;
-  arrayToSend[wifiArrayCounter] = byte(((d >>> 8) & 0xFF));  
+  arrayToSend[wifiArrayCounter] = byte(((d >>> 8) & 0xFF));
   wifiArrayCounter++;
-  arrayToSend[wifiArrayCounter] = byte(((d >>> 16) & 0xFF));  
+  arrayToSend[wifiArrayCounter] = byte(((d >>> 16) & 0xFF));
   wifiArrayCounter++;
-  arrayToSend[wifiArrayCounter] = byte(((d >>> 24) & 0xFF));  
+  arrayToSend[wifiArrayCounter] = byte(((d >>> 24) & 0xFF));
   wifiArrayCounter++;
 }
 void sendFl(float d) {
   int bits = Float.floatToIntBits(d);
-  arrayToSend[wifiArrayCounter] = (byte)(bits & 0xFF);  
+  arrayToSend[wifiArrayCounter] = (byte)(bits & 0xFF);
   wifiArrayCounter++;
-  arrayToSend[wifiArrayCounter] = (byte)((bits >>> 8) & 0xFF);  
+  arrayToSend[wifiArrayCounter] = (byte)((bits >>> 8) & 0xFF);
   wifiArrayCounter++;
-  arrayToSend[wifiArrayCounter] = (byte)((bits >>> 16) & 0xFF);  
+  arrayToSend[wifiArrayCounter] = (byte)((bits >>> 16) & 0xFF);
   wifiArrayCounter++;
   arrayToSend[wifiArrayCounter] = (byte)((bits >>> 24) & 0xFF);
   wifiArrayCounter++;
@@ -94,7 +94,7 @@ int recvIn() {
 }
 float recvFl() {
   String hexint=hex(byte(arrayRecvd[wifiArrayCounter+3]))+hex(byte(arrayRecvd[wifiArrayCounter+2]))+hex(byte(arrayRecvd[wifiArrayCounter+1]))+hex(byte(arrayRecvd[wifiArrayCounter]));
-  float d = Float.intBitsToFloat(unhex(hexint)); 
+  float d = Float.intBitsToFloat(unhex(hexint));
   wifiArrayCounter++;
   wifiArrayCounter++;
   wifiArrayCounter++;
