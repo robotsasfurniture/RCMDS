@@ -14,8 +14,6 @@ float velx=0;
 float vely=0;
 float velt=0;
 
-float heading=0;
-
 void setup() {
   size(1400, 800);
   rcmdsSetup();
@@ -34,8 +32,8 @@ void draw() {
 
   turnVal=constrain(turnVal, -3.14159, 3.14159);
 
-  String[] msg={"battery voltage", "ping", "forwards", "left", "clockwise", "v f", "v l", "v t", "heading"};
-  String[] data={str(batVolt), str(wifiPing), str(moveVal.y), str(moveVal.x), str(turnVal), str(velx), str(vely), str(velt), str(heading)};
+  String[] msg={"battery voltage", "ping", "forwards", "left", "clockwise", "v f", "v l", "v t"};
+  String[] data={str(batVolt), str(wifiPing), str(moveVal.y), str(moveVal.x), str(turnVal), str(velx), str(vely), str(velt)};
   dispTelem(msg, data, width/2, height*2/3, width/4, height*2/3, 12);
 
   sendWifiData(true);
