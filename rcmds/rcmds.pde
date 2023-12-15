@@ -50,7 +50,7 @@ void WifiDataToSend() {
   sendBl(enabled);
   ///////////////////////////////////add data to send here
   sendBy((byte)1);// mode
-  sendFl(moveVal.y);
-  sendFl(moveVal.x);
+  sendFl(moveVal.y); // forwards
+  sendFl(moveVal.x); // left
   sendFl(turnVal);
 }
